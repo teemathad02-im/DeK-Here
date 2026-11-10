@@ -248,4 +248,13 @@ $("addphoto").onclick=function(){$("pf").click()};
 $("pf").onchange=function(){var f=this.files[0];if(!f)return;var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var m=Math.min(im.width,im.height),c=document.createElement("canvas");c.width=c.height=176;c.getContext("2d").drawImage(im,(im.width-m)/2,(im.height-m)/2,m,m,0,0,176,176);S.photo=c.toDataURL("image/jpeg",.82);$("himg").src=S.photo;persist()};im.src=r.result};r.readAsDataURL(f);this.value=""};
 gate();
 init().then(function(){stressUI($("sb1"),"x");stressUI($("sb2"),"y");extra();drawPlan("");gate()});
-</script></body></html>
+</script>
+<script type="module">
+  import { db } from "./firebase.js";
+  import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  // ทดสอบบันทึกข้อมูล
+  await addDoc(collection(db, "test"), { msg: "hello", time: Date.now() });
+  console.log("บันทึกสำเร็จ");
+</script>
+</body></html>
