@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="th"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dek-Here</title>
+<link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef3f4;--sf:#fff;--ink:#12303a;--mu:#5b7480;--ln:#d3e0e3;--ac:#2f7f79;--ai:#fff;--sun:#f2b84b;--wn:#c9573b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1b20;--sf:#162a31;--ink:#e6f1f2;--mu:#97b0b8;--ln:#27424b;--ac:#59b7ae;--ai:#07201e;--wn:#f08a6e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1b20;--sf:#162a31;--ink:#e6f1f2;--mu:#97b0b8;--ln:#27424b;--ac:#59b7ae;--ai:#07201e;--wn:#f08a6e;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 "Noto Sans Thai",system-ui,sans-serif}
+main{max-width:600px;margin:0 auto;padding:16px 14px 96px}
+h1{font-size:1.4rem;margin:6px 0}h2{font-size:1.1rem;margin:0 0 8px}p{margin:0 0 10px}
+.c{background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:16px;margin-bottom:14px}
+.mu{color:var(--mu);font-size:.88rem}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--sf);border-top:1px solid var(--ln);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
+nav button{flex:1;background:none;border:0;color:var(--mu);font:inherit;font-size:.8rem;padding:8px 2px;border-radius:10px}
+nav button[aria-selected="true"]{color:var(--ac);font-weight:700;background:color-mix(in srgb,var(--ac) 12%,transparent)}
+.b{background:var(--ac);color:var(--ai);border:0;border-radius:10px;padding:11px 16px;font:inherit;font-weight:700;width:100%;margin-top:8px}
+.b.g{background:none;color:var(--ac);border:1.5px solid var(--ac)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+select,input[type=text],textarea{width:100%;font:inherit;padding:9px;border-radius:9px;border:1px solid var(--ln);background:var(--bg);color:var(--ink)}
+label{display:block;font-weight:600;margin:10px 0 4px}
+.sc{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.88rem}
+td,th{border-bottom:1px solid var(--ln);padding:6px 8px;text-align:left;white-space:nowrap}
+.rk{border-left:5px solid var(--ac);padding:6px 12px;margin:8px 0;background:color-mix(in srgb,var(--ac) 8%,transparent);border-radius:0 10px 10px 0}
+.rk.r{border-color:var(--wn)}.rk.s{border-color:var(--sun)}
+.q{border-top:1px solid var(--ln);padding:10px 0}.q label{font-weight:400;margin:2px 0}
+.hide{display:none}.warn{color:var(--wn)}
+:root{--bg:#e9f4fb;--sf:#fff;--ink:#1b2a4a;--mu:#64768f;--ln:#dbe8f2;--ac:#3b7ddd;--ac2:#35b8a0;--ai:#fff;--sun:#ffc94d;--wn:#e0674b;--g1:#74c0f5;--sh:0 8px 24px rgba(40,90,150,.12)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1626;--sf:#16233a;--ink:#e8eefb;--mu:#9bb0cc;--ln:#25375a;--ac:#6fa8ff;--ac2:#4fd1b5;--ai:#07142b;--g1:#2a5f9a;--sh:0 8px 24px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#0d1626;--sf:#16233a;--ink:#e8eefb;--mu:#9bb0cc;--ln:#25375a;--ac:#6fa8ff;--ac2:#4fd1b5;--ai:#07142b;--g1:#2a5f9a;--sh:0 8px 24px rgba(0,0,0,.4)}
+body{background-color:var(--bg);background-image:linear-gradient(180deg,color-mix(in srgb,var(--g1) 60%,var(--bg)),var(--bg) 340px);background-repeat:no-repeat;letter-spacing:.1px}
+main{padding:18px 14px 120px}
+.hero{display:flex;gap:14px;align-items:center;margin:8px 2px 14px}
+.hero .em{font-size:2.6rem;width:68px;height:68px;border-radius:22px;background:var(--sf);box-shadow:var(--sh);display:flex;align-items:center;justify-content:center;flex:none}
+.hero h1{font-size:1.45rem;margin:0;line-height:1.3}.hero p{margin:2px 0 0;color:var(--mu);font-size:.9rem}
+#acct{display:inline-block;background:color-mix(in srgb,var(--sf) 80%,transparent);border-radius:999px;padding:4px 14px;font-size:.78rem;margin:0 0 14px}
+.c{border:0;border-radius:24px;box-shadow:var(--sh);padding:20px;margin-bottom:16px}
+h2{font-size:1.1rem;display:flex;align-items:center;gap:8px;margin:0 0 10px}
+h2::before{content:"";width:6px;height:20px;border-radius:4px;background:linear-gradient(var(--ac),var(--ac2));flex:none}
+.b{background:linear-gradient(135deg,var(--ac),var(--ac2));border-radius:999px;padding:13px 20px;box-shadow:0 6px 16px color-mix(in srgb,var(--ac) 35%,transparent);transition:transform .12s,box-shadow .12s;margin-top:12px}
+.b:active{transform:scale(.97)}.b:disabled{opacity:.6}
+.b.g{background:transparent;color:var(--ac);border:1.5px solid var(--ac);box-shadow:none}
+select,input[type=text],textarea{border-radius:14px;border:1.5px solid var(--ln);padding:11px 12px;background:var(--bg)}
+select:focus,textarea:focus{border-color:var(--ac)}
+label{margin:14px 0 6px}
+input[type=range]{-webkit-appearance:none;appearance:none;height:8px;border-radius:8px;background:linear-gradient(90deg,var(--ac2),var(--sun),var(--wn));outline-offset:6px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--ac);box-shadow:0 2px 8px rgba(0,0,0,.25)}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--ac)}
+.rk{border-radius:18px;border-left-width:6px;padding:12px 14px;margin:10px 0}
+th{color:var(--mu);font-weight:600;font-size:.8rem}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--ac) 5%,transparent)}
+td,th{padding:9px 10px}
+nav{left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom,0px));max-width:576px;margin:0 auto;border:0;border-radius:26px;box-shadow:0 10px 30px rgba(20,50,100,.22);padding:6px;gap:4px;line-height:1.35}
+nav button{border-radius:20px;font-size:.74rem;padding:7px 2px;transition:background .15s}
+nav button::first-line{font-size:1.35rem}
+nav button[aria-selected="true"]{background:linear-gradient(135deg,var(--ac),var(--ac2));color:var(--ai)}
+#mood button{border-radius:18px;transition:transform .12s}
+#mood button:hover{background:color-mix(in srgb,var(--ac) 7%,transparent)}
+#mood button>span:first-child{box-shadow:0 4px 12px rgba(0,0,0,.14);transition:transform .15s}
+#mood button:active>span:first-child{transform:scale(.88)}
+.q{border-top:1px dashed var(--ln);padding:12px 0}
+section:not(.hide){animation:fi .3s ease both}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){section:not(.hide){animation:none}.b,#mood button>span:first-child{transition:none}}
+:root{--bg:#fff;--ln:#e4ecf3;--sh:0 4px 18px rgba(30,60,100,.08)}
+@media (prefers-color-scheme:light){body{background-image:none}}
+.c,.hero .em{border:1px solid var(--ln)}
+#acct{background:color-mix(in srgb,var(--ac) 9%,transparent)}
+nav{border:1px solid var(--ln)}
+:root:root:root{--bg:#fff;--sf:#fff;--ink:#222a2e;--mu:#667379;--ln:#e5e9ea;--ac:#1f9d8a;--ac2:#4cc38a;--ai:#fff;--g1:#fff;--sh:0 4px 18px rgba(0,0,0,.07);color-scheme:light}
+html,body{background:#fff!important}
+body{background-image:none!important}
+:root:root:root{--ac:#4b5563;--ac2:#8b95a3}
+:root:root:root{--ac:#f2b705;--ac2:#ffd95a;--ai:#3a2c00}
+.b.g{color:#7a5a00;border-color:var(--ac)}
+.hero .em{padding:0;overflow:hidden;border-radius:50%}.hero .em img{width:100%;height:100%;object-fit:cover;display:block}
+#login{position:fixed;inset:0;z-index:20;background:#fff;display:flex;justify-content:center;align-items:flex-start;padding:max(28px,env(safe-area-inset-top,0px)) 18px 28px;text-align:center;overflow:auto}
+#login.hide{display:none}
+#login .box{max-width:400px;width:100%;margin:auto}
+#login img{width:112px;height:112px;border-radius:50%;object-fit:cover;border:1px solid var(--ln);box-shadow:var(--sh)}
+#login h1{font-size:1.6rem}
+#lopen{display:inline-block}
+.av{position:relative;flex:none}#addphoto{position:absolute;right:-4px;bottom:-4px;width:30px;height:30px;border-radius:50%;border:2px solid #fff;background:var(--ac);color:var(--ai);font:700 1.2rem/1 inherit;padding:0;cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,.25)}#llogo{display:block;margin:0 auto;filter:drop-shadow(0 6px 12px rgba(0,0,0,.15))}
+#llogo{border-radius:50%}
+</style></head><body><div id="login"><div class="box"><img id="llogo" src="logo.png" alt="DEK HERE logo" width="128" height="128"><h1 style="margin:16px 0 4px">Ready for university?</h1><p class="mu">Take it one step at a time. Practice, plan, and track your own progress.</p>
+<div class="c" style="text-align:left;margin-top:18px"><h2>Sign in</h2><p class="mu">Save your study plan, practice scores and mood check-ins, and pick up where you left off on any device.</p><p class="warn mu" id="lst"></p><button class="b" id="lrecheck">Sign in</button></div>
+<div class="c" style="text-align:left"><h2>Continue as guest</h2><label for="lname">Your nickname</label><input type="text" id="lname" placeholder="e.g. Mint" maxlength="20"><button class="b g" id="lguest">Start preparing</button><p class="mu" style="margin:8px 0 0">Your data stays in this browser only.</p></div></div></div><main>
+<div class="hero"><div class="av"><div class="em"><img id="himg" src="logo.png" alt="รูปโปรไฟล์"></div><button id="addphoto" type="button" aria-label="Add photo" title="Add photo">+</button></div><input type="file" id="pf" accept="image/*" hidden><div><h1>Prepare for University</h1><p>ค่อย ๆ เตรียมตัว ทีละก้าว เทียบกับตัวเองเท่านั้น</p></div></div>
+<p class="mu" id="acct">กำลังตรวจสอบบัญชี...</p><button id="lopen" class="b g" style="width:auto;padding:5px 16px;margin:0 0 14px 6px;font-size:.78rem">เข้าสู่ระบบ</button>
+
+<section id="p-goal">
+ <div class="c"><h2>1. เลือกสายที่สนใจ</h2>
+  <select id="field"></select>
+  <button class="b" id="rank">จัด 3 อันดับคณะที่เหมาะกับคะแนนฉัน</button>
+  <div id="ranked"></div></div>
+ <div class="c"><h2>สถิติคะแนนต่ำสุด 3 ปี</h2>
+  <p class="warn mu">ข้อมูลเริ่มต้นเป็นตัวอย่างเพื่อสาธิตเท่านั้น ไม่ใช่ข้อมูลจริง ตรวจตัวเลขจริงที่ mytcas.com และประกาศของแต่ละมหาวิทยาลัย แล้ววางข้อมูลจริงของคุณด้านล่าง</p>
+  <div class="sc"><table id="tb"></table></div></div>
+ <div class="c"><h2>เพิ่มข้อมูลจริง (CSV)</h2>
+  <p class="mu">หนึ่งบรรทัดต่อหนึ่งสาขา: มหาวิทยาลัย,คณะ,สายวิชา,ปีเก่าสุด,ปีกลาง,ปีล่าสุด (คะแนนต่ำสุดเป็น % ของคะแนนเต็มรวม)</p>
+  <textarea id="csv" rows="4" placeholder="จุฬาฯ,วิศวกรรมศาสตร์,วิศวะ,70,72,74"></textarea>
+  <button class="b g" id="addcsv">เพิ่มข้อมูล</button><button class="b g" id="clr">กลับไปใช้ข้อมูลตัวอย่าง</button></div>
+</section>
+
+<section id="p-test" class="hide">
+ <div class="c" id="mood"></div><div class="c" id="sb1"></div><div class="c"><h2>2. ทำข้อสอบจำลอง</h2>
+  <p class="mu">ข้อสอบฝึกที่เขียนขึ้นตามแนวข้อสอบ ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า ใช้ประเมินระดับเบื้องต้นเท่านั้น</p>
+  <select id="sub"><option value="TGAT1">TGAT1 สื่อสารภาษาอังกฤษ</option><option value="TGAT2">TGAT2 การคิดอย่างมีเหตุผล</option><option value="TGAT3">TGAT3 สมรรถนะการทำงาน</option><option value="TPAT3">TPAT3 วิทย์ เทคโนโลยี วิศวกรรม</option></select>
+  <button class="b" id="gen">สุ่มข้อสอบ 5 ข้อ</button>
+  <div id="qs"></div></div>
+ <div class="c"><h2>คะแนนของฉัน</h2><div id="mine"></div></div>
+</section>
+
+<section id="p-plan" class="hide">
+ <div class="c" id="sb2"></div><div class="c"><h2>3. เทียบคะแนนและจัดตารางอ่าน</h2>
+  <div id="cmp"></div>
+  <label for="hrs">อ่านได้วันละกี่ชั่วโมง: <span id="hv">3</span></label>
+  <input id="hrs" type="range" min="1" max="8" value="3" style="width:100%">
+  <button class="b" id="mk">สร้างตารางอ่าน 7 วัน</button><button class="b g" id="adj">อ่านไม่ทันตามแผน? ปรับตารางใหม่</button></div>
+ <div class="c sc"><table id="sched"></table><p class="mu" id="snote"></p></div>
+</section>
+<section id="p-prog" class="hide"><div class="c" id="prog"></div></section></main>
+<nav><button data-t="goal" aria-selected="true">🎯<br>เป้าหมาย</button><button data-t="test" aria-selected="false">📝<br>ประเมิน</button><button data-t="plan" aria-selected="false">📅<br>ตารางอ่าน</button><button data-t="prog" aria-selected="false">📈<br>พัฒนาการ</button></nav>
+<script>
+var $=function(i){return document.getElementById(i)};
+var SAMPLE=[["จุฬาฯ","วิศวกรรมศาสตร์","วิศวะ",68,70,72],["เกษตรศาสตร์","วิศวกรรมศาสตร์","วิศวะ",58,60,61],["ขอนแก่น","วิศวกรรมศาสตร์","วิศวะ",48,50,52],["มช.","วิศวกรรมศาสตร์","วิศวะ",52,54,55],["ธรรมศาสตร์","นิติศาสตร์","สังคม",62,64,66],["มหิดล","บริหารธุรกิจ","บริหาร",56,58,57],["จุฬาฯ","อักษรศาสตร์","ภาษา",60,61,63],["ศิลปากร","สถาปัตยกรรมศาสตร์","ศิลป์-สถาปัตย์",55,57,59],["มศว","ครุศาสตร์","ครู",45,47,48],["มทร.ธัญบุรี","วิศวกรรมศาสตร์","วิศวะ",35,36,38]];
+var S={p:[],t:[],exam:""},uid=null,doc=null;
+/* storage: db per-user when signed in, else localStorage */
+function persist(){try{if(doc)doc.set(S);else localStorage.setItem("tp",JSON.stringify(S))}catch(e){}}
+async function init(){
+ try{var u=await claude.use("user");if(u){var m=await u.me();uid=m.id;$("acct").textContent="เข้าสู่ระบบแล้ว: "+(m.name||"ผู้ใช้")+" · ข้อมูลของคุณเก็บแยกเป็นส่วนตัว"}}catch(e){}
+ try{var db=await claude.use("db");if(db&&uid){doc=db.collection("data/users/"+uid).doc("planner");var s=await doc.get();if(s.exists)Object.assign(S,s.data())}}catch(e){doc=null}
+ if(!doc){try{var r=localStorage.getItem("tp");if(r)Object.assign(S,JSON.parse(r))}catch(e){}$("acct").textContent="ยังไม่ได้เข้าสู่ระบบ: ข้อมูลเก็บในเบราว์เซอร์นี้เท่านั้น"}
+ render();
+}
+function progs(){return S.p&&S.p.length?S.p:SAMPLE}
+function avg(a){return Math.round((a[3]+a[4]+a[5])/3)}
+function subAvg(s){var h=S.t.filter(function(x){return x.s===s}).slice(-3);return h.length?Math.round(h.reduce(function(a,x){return a+x.pct},0)/h.length):null}
+function myScore(){var v=["TGAT1","TGAT2","TGAT3","TPAT3"].map(subAvg).filter(function(x){return x!==null});return v.length?Math.round(v.reduce(function(a,b){return a+b},0)/v.length):null}
+function render(){
+ var f=[...new Set(progs().map(function(a){return a[2]}))];
+ var cur=$("field").value;$("field").innerHTML='<option value="">ทุกสาย</option>'+f.map(function(x){return"<option>"+x+"</option>"}).join("");$("field").value=cur;
+ $("tb").innerHTML="<tr><th>มหาวิทยาลัย</th><th>คณะ</th><th>ปีเก่า</th><th>ปีกลาง</th><th>ล่าสุด</th></tr>"+progs().map(function(a){return"<tr><td>"+a[0]+"</td><td>"+a[1]+"</td><td>"+a[3]+"</td><td>"+a[4]+"</td><td>"+a[5]+"</td></tr>"}).join("");
+ var m=myScore(),h=["TGAT1","TGAT2","TGAT3","TPAT3"].map(function(s){var a=subAvg(s);return"<tr><td>"+s+"</td><td>"+(a===null?"ยังไม่ได้ทำ":a+"%")+"</td></tr>"}).join("");
+ $("mine").innerHTML="<table>"+h+"</table><p>ระดับความพร้อมโดยประมาณ: <b>"+(m===null?"-":m+"%")+"</b></p>";
+ $("cmp").innerHTML=m===null?'<p class="warn">ยังไม่มีคะแนน ไปทำข้อสอบจำลองก่อน</p>':"<p>ระดับความพร้อมโดยประมาณของฉัน <b>"+m+"%</b>"+(S.top&&S.top.length?"<br>เป้าหมาย: "+S.top.map(function(a,i){var g=avg(a)-m;return(i+1)+". "+a[1]+" "+a[0]+" (ต้องการ ~"+avg(a)+"%, "+(g>0?"ขาดอีก "+g:"เกินอยู่ "+(-g))+" จุด)"}).join("<br>"):"<br>ยังไม่ได้จัดอันดับ ไปแท็บเป้าหมาย")+"</p>";
+}
+document.querySelectorAll("nav button").forEach(function(b){b.onclick=function(){document.querySelectorAll("nav button").forEach(function(x){x.setAttribute("aria-selected",x===b)});["goal","test","plan","prog"].forEach(function(t){$("p-"+t).classList.toggle("hide",t!==b.dataset.t)});render();scrollTo(0,0)}});
+/* ranking */
+$("rank").onclick=function(){
+ var m=myScore();if(m===null){$("ranked").innerHTML='<p class="warn">ทำข้อสอบจำลองอย่างน้อย 1 ชุดก่อน เพื่อให้ระบบรู้ระดับคะแนนของคุณ</p>';return}
+ var f=$("field").value,l=progs().filter(function(a){return!f||a[2]===f}).map(function(a){return{a:a,g:m-avg(a)}});
+ var reach=l.filter(function(x){return x.g<0}).sort(function(x,y){return y.g-x.g})[0],
+     fit=l.filter(function(x){return x.g>=0&&x.g<=8}).sort(function(x,y){return y.g-x.g})[0],
+     safe=l.filter(function(x){return x.g>8}).sort(function(x,y){return x.g-y.g})[0];
+ var pick=[["ท้าทาย","r",reach],["พอดี","",fit],["ปลอดภัย","s",safe]].filter(function(p){return p[2]});
+ if(!pick.length){$("ranked").innerHTML="<p>ไม่พบข้อมูลในสายนี้</p>";return}
+ S.top=pick.map(function(p){return p[2].a});persist();
+ $("ranked").innerHTML=pick.map(function(p,i){var x=p[2];return'<div class="rk '+p[1]+'"><b>'+(i+1)+". "+x.a[1]+" "+x.a[0]+"</b> ("+p[0]+")<br>เฉลี่ย 3 ปี ~"+avg(x.a)+"% · คะแนนฉัน "+m+"% ("+(x.g>=0?"+":"")+x.g+")</div>"}).join("")+'<p class="mu">จัดจากคะแนนจำลองของคุณเทียบค่าเฉลี่ยคะแนนต่ำสุด 3 ปี เป็นเพียงแนวทาง ไม่ใช่การพยากรณ์ผลจริง</p>';
+};
+$("addcsv").onclick=function(){
+ var rows=$("csv").value.split("\n").map(function(r){return r.split(",").map(function(x){return x.trim()})}).filter(function(r){return r.length>=6&&!isNaN(+r[3])&&!isNaN(+r[5])});
+ if(!rows.length){alert("รูปแบบไม่ถูกต้อง ต้องมี 6 ช่องต่อบรรทัด");return}
+ S.p=(S.p||[]).concat(rows.map(function(r){return[r[0],r[1],r[2],+r[3],+r[4],+r[5]]}));persist();$("csv").value="";render()};
+$("clr").onclick=function(){S.p=[];persist();render()};
+/* practice: local question bank */
+var QB={
+TGAT1:[
+{q:"Choose the best reply: \"Would you mind closing the window?\"",c:["Not at all, I'll do it now.","Yes, I would.","No, I don't have it.","Sure, it is a window."],a:0,e:"\"Would you mind...?\" ตอบว่า Not at all เพื่อแสดงว่ายินดีทำ"},
+{q:"\"I'm sorry I'm late. The traffic was terrible.\" Best response:",c:["That's all right. Please take a seat.","You're welcome.","I agree with you.","Congratulations!"],a:0,e:"ตอบรับคำขอโทษอย่างสุภาพ"},
+{q:"If I ___ more time, I would travel around the world.",c:["had","have","will have","having"],a:0,e:"Second conditional: If + past simple, would + V1"},
+{q:"The meeting has been ___ until next Monday because the manager is ill.",c:["postponed","preceded","proceeded","promoted"],a:0,e:"postpone = เลื่อนออกไป"},
+{q:"The sign says \"NO ENTRY EXCEPT FOR STAFF\". It means:",c:["Only employees may enter.","Everyone may enter.","Staff must not enter.","Entry is free for visitors."],a:0,e:"except for staff = ยกเว้นพนักงาน"},
+{q:"She is ___ student in our class.",c:["the most diligent","more diligent","diligenter","most diligent"],a:0,e:"คำคุณศัพท์หลายพยางค์ใช้ the most + adj."},
+{q:"Choose the word closest in meaning to \"reluctant\".",c:["unwilling","eager","careful","generous"],a:0,e:"reluctant = ไม่เต็มใจ"},
+{q:"Customer: \"Excuse me, how much is this jacket?\" Clerk: \"___\"",c:["It's 1,200 baht.","It's black.","I like it.","It's on the second floor."],a:0,e:"คำถามถามราคา ต้องตอบเป็นราคา"}
+],
+TGAT2:[
+{q:"อนุกรม 2, 6, 18, 54, ?",c:["108","162","148","216"],a:1,e:"คูณ 3 ทุกพจน์ 54×3 = 162"},
+{q:"อนุกรม 1, 4, 9, 16, ?",c:["20","24","25","36"],a:2,e:"เป็นเลขยกกำลังสอง 5² = 25"},
+{q:"นักเรียนทุกคนที่ขยันจะสอบผ่าน สมชายเป็นนักเรียนที่สอบไม่ผ่าน สรุปได้ว่า",c:["สมชายขยัน","สมชายไม่ขยัน","สมชายไม่ใช่นักเรียน","ทุกคนที่สอบผ่านขยัน"],a:1,e:"ถ้าไม่ผ่านแล้ว ต้องไม่ขยัน (contrapositive)"},
+{q:"A สูงกว่า B, B สูงกว่า C, D เตี้ยกว่า C ใครเตี้ยที่สุด",c:["A","B","C","D"],a:3,e:"A > B > C > D"},
+{q:"หมอ : โรงพยาบาล = ครู : ?",c:["โรงเรียน","นักเรียน","หนังสือ","ห้องสมุด"],a:0,e:"ความสัมพันธ์ ผู้ทำงาน : สถานที่ทำงาน"},
+{q:"ปากกา 3 ด้ามราคา 45 บาท ปากกา 7 ด้ามราคากี่บาท",c:["90","105","115","120"],a:1,e:"ด้ามละ 15 บาท 15×7 = 105"},
+{q:"อนุกรม 5, 8, 13, 20, 29, ?",c:["38","40","42","36"],a:1,e:"ผลต่างเป็น 3,5,7,9 ต่อไปคือ 11 ดังนั้น 29+11 = 40"},
+{q:"ถ้าฝนตก ถนนจะเปียก ตอนนี้ถนนเปียก สรุปได้ว่า",c:["ฝนตกแน่นอน","สรุปไม่ได้ว่าฝนตกหรือไม่","ฝนไม่ตก","ถนนแห้ง"],a:1,e:"ถนนเปียกจากสาเหตุอื่นได้ เช่น รถล้างถนน"}
+],
+TGAT3:[
+{q:"ทีมมีความเห็นขัดแย้งกันเรื่องวิธีทำงาน ควรทำอะไรก่อน",c:["รับฟังเหตุผลของแต่ละฝ่าย แล้วหาข้อตกลงร่วมตามเป้าหมายงาน","ยืนยันความเห็นตัวเอง","ปล่อยให้หัวหน้าตัดสินทุกครั้ง","แยกไปทำงานคนเดียว"],a:0,e:"การรับฟังและหาข้อตกลงร่วมช่วยให้ทีมไปต่อได้"},
+{q:"ได้รับมอบหมายงานที่ไม่ถนัด ควรทำอย่างไร",c:["ปฏิเสธทันที","ศึกษาเพิ่ม ขอคำแนะนำจากผู้รู้ แล้วลงมือทำ","ทำให้เสร็จโดยไม่ถามใคร","ส่งต่อให้เพื่อน"],a:1,e:"เรียนรู้และขอความช่วยเหลือเป็นการแก้ปัญหาที่ยั่งยืน"},
+{q:"รู้ว่าจะส่งงานไม่ทันกำหนด ควรทำอย่างไร",c:["เงียบไว้ก่อน","แจ้งผู้เกี่ยวข้องล่วงหน้า พร้อมเสนอเวลาที่ทำได้จริง","ส่งงานที่ยังไม่เสร็จ","ขอให้คนอื่นรับผิดชอบแทน"],a:1,e:"การสื่อสารล่วงหน้าช่วยให้วางแผนรับมือได้"},
+{q:"เพื่อนร่วมทีมทำงานผิดพลาด ควรทำอย่างไร",c:["บอกในที่ประชุมให้ทุกคนรู้","บอกอย่างสุภาพเป็นการส่วนตัว และช่วยหาทางแก้","แก้เองโดยไม่บอก","รายงานหัวหน้าทันที"],a:1,e:"เน้นแก้ปัญหาและรักษาความสัมพันธ์"},
+{q:"ถูกวิจารณ์ผลงาน ควรทำอย่างไร",c:["โต้แย้งทันที","รับฟัง แยกสิ่งที่ปรับปรุงได้ แล้วนำไปพัฒนา","เลิกทำงานนั้น","ไม่สนใจ"],a:1,e:"ใช้คำวิจารณ์เป็นข้อมูลพัฒนาตนเอง"},
+{q:"มีงานเร่งด่วนหลายอย่างพร้อมกัน ควรทำอย่างไร",c:["ทำอันที่ง่ายที่สุดก่อนเสมอ","จัดลำดับตามความสำคัญและความเร่งด่วน แล้วทำทีละอย่าง","ทำทุกอย่างพร้อมกัน","รอให้มีคนมาสั่ง"],a:1,e:"การจัดลำดับความสำคัญคือหลักการบริหารเวลา"}
+],
+TPAT3:[
+{q:"รถวิ่งด้วยความเร็ว 72 km/h เท่ากับกี่ m/s",c:["10","20","25","72"],a:1,e:"72 ÷ 3.6 = 20 m/s"},
+{q:"วัตถุมวล 5 kg ถูกแรง 20 N กระทำ จะมีความเร่งกี่ m/s²",c:["2","4","10","100"],a:1,e:"a = F/m = 20/5 = 4"},
+{q:"ตัวต้านทาน 2 Ω และ 3 Ω ต่ออนุกรมกัน ความต้านทานรวมกี่ Ω",c:["1.2","5","6","0.5"],a:1,e:"อนุกรมรวมกันตรง ๆ 2+3 = 5"},
+{q:"ตัวต้านทาน 6 Ω และ 3 Ω ต่อขนานกัน ความต้านทานรวมกี่ Ω",c:["2","4.5","9","18"],a:0,e:"(6×3)/(6+3) = 2"},
+{q:"สมการ x² − 5x + 6 = 0 ผลบวกของรากเท่ากับเท่าใด",c:["5","6","-5","1"],a:0,e:"ราก 2 และ 3 ผลบวก = 5 (หรือ −b/a = 5)"},
+{q:"วัตถุมวล 2 kg เคลื่อนที่ด้วยความเร็ว 3 m/s มีพลังงานจลน์กี่จูล",c:["6","9","18","12"],a:1,e:"Ek = ½mv² = ½×2×9 = 9 J"},
+{q:"log₂ 8 มีค่าเท่าใด",c:["2","3","4","8"],a:1,e:"2³ = 8"},
+{q:"ก้อนโลหะมวล 200 g ปริมาตร 50 cm³ มีความหนาแน่นกี่ g/cm³",c:["0.25","2","4","10"],a:2,e:"200/50 = 4"}
+]};
+function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function pickQ(sub){return shuf(QB[sub]||[]).slice(0,5).map(function(x){var ix=shuf([0,1,2,3]);return{q:x.q,c:ix.map(function(i){return x.c[i]}),a:ix.indexOf(x.a),e:x.e}})}
+var cur=[];
+$("gen").onclick=function(){
+ var sub=$("sub").value;cur=pickQ(sub);
+ $("qs").innerHTML=cur.map(function(x,i){return'<div class="q"><b>'+(i+1)+". "+x.q+"</b>"+x.c.map(function(c,j){return'<label><input type="radio" name="q'+i+'" value="'+j+'"> '+c+"</label>"}).join("")+'<div class="mu hide" id="e'+i+'"></div></div>'}).join("")+'<button class="b" id="sub2">ส่งคำตอบและดูคะแนน</button>';
+ $("sub2").onclick=function(){var ok=0;cur.forEach(function(x,i){var s=document.querySelector('input[name="q'+i+'"]:checked'),r=s&&+s.value===x.a;if(r)ok++;var e=$("e"+i);e.classList.remove("hide");e.textContent=(r?"ถูก ":"ผิด ")+"เฉลย: "+x.c[x.a]+" — "+x.e});
+  var pct=Math.round(ok/cur.length*100);S.t.push({s:sub,pct:pct,d:Date.now()});S.t=S.t.slice(-40);persist();render();this.disabled=true;this.textContent="ได้ "+ok+"/"+cur.length+" ("+pct+"%)"};
+};
+/* schedule */
+$("hrs").oninput=function(){$("hv").textContent=this.value};
+var SB=[["รู้สึกกดดันเรื่องสอบมากแค่ไหน","a"],["รู้สึกว่าเตรียมตัวไม่ทันแค่ไหน","b"],["กังวลเรื่องคะแนนหรือความคาดหวังของครอบครัวแค่ไหน","c"]],SU=["TGAT1","TGAT2","TGAT3","TPAT3"],DY=["จันทร์","อังคาร","พุธ","พฤหัส","ศุกร์","เสาร์","อาทิตย์"];
+function stressUI(el,k){el.innerHTML='<h2>เช็กใจก่อนเริ่ม</h2><p class="mu">ตอบตามความรู้สึกจริง ไม่มีถูกผิด ผลนี้ใช้ปรับตารางให้เบาลงเมื่อคุณเหนื่อย</p>'+SB.map(function(x){return'<label for="'+k+x[1]+'">'+x[0]+'</label><input type="range" id="'+k+x[1]+'" min="1" max="5" value="3" style="width:100%"><div class="mu" style="display:flex;justify-content:space-between"><span>น้อย</span><span>มาก</span></div>'}).join("")+'<button class="b g" id="'+k+'s">บันทึกความรู้สึกวันนี้</button><p id="'+k+'m" class="mu"></p>';
+ $(k+"s").onclick=function(){var v=SB.map(function(z){return+$(k+z[1]).value}),l=(v[0]+v[1]+v[2])/3;S.st=(S.st||[]).concat({l:+l.toFixed(1),d:Date.now()}).slice(-30);persist();render()}}
+function stLvl(){var s=S.st&&S.st.length?S.st[S.st.length-1].l:null,m=S.mo&&S.mo.length?S.mo[S.mo.length-1]:null;if(m&&Date.now()-m.d<432e5&&[4,5,6,7,8].indexOf(m.m)>-1)s=Math.max(s||3,3.8);return s}
+function lv(a){return a===null?["-","ทำข้อสอบก่อนเพื่อให้แอปแนะนำ"]:a<50?["ต่ำ","ทบทวนพื้นฐาน"]:a<75?["ปานกลาง","ฝึกทำโจทย์"]:["สูง","ทบทวนเป็นระยะ"]}
+function hist(s){return S.t.filter(function(x){return x.s===s})}
+function extra(){
+ var l=stLvl(),msg=l===null?"ยังไม่ได้เช็กใจวันนี้":l>=3.7?"ช่วงนี้กดดันค่อนข้างมาก ตารางจะเบาลงและมีเวลาพักมากขึ้น นี่ไม่ได้แปลว่าคุณล้มเหลว":l>=2.5?"กดดันระดับปกติ ตารางจะปรับเล็กน้อยให้มีเวลาพัก":"ใจค่อนข้างนิ่ง รักษาจังหวะนี้ไว้";
+ ["x","y"].forEach(function(k){var e=$(k+"m");if(e)e.textContent=msg});
+ var ds=[],rows=SU.map(function(s){var h=hist(s),f=h.length?h[0].pct:null,la=h.length?h[h.length-1].pct:null,d=h.length>1?la-f:null;if(d!==null)ds.push(d);
+  var b=h.map(function(x){return'<span style="display:inline-block;width:10px;height:'+Math.max(4,x.pct*.4)+'px;background:var(--ac);margin-right:3px;vertical-align:bottom;border-radius:2px"></span>'}).join("");
+  return"<tr><td>"+s+"</td><td>"+b+"</td><td>"+(f===null?"-":f+"% → "+la+"%")+(d===null?"":d>=0?" (+"+d+")":" ("+d+")")+"</td></tr>"}).join("");
+ var rec=SU.map(function(s){var r=lv(subAvg(s));return"<tr><td>"+s+"</td><td>"+r[0]+"</td><td>"+r[1]+"</td></tr>"}).join("");
+ var att=SU.filter(function(s){return subAvg(s)!==null}).sort(function(a,b){return subAvg(a)-subAvg(b)}),m=myScore();
+ var enc=ds.length?(ds.reduce(function(a,b){return a+b},0)/ds.length>0?"คุณพัฒนาขึ้นเฉลี่ย +"+Math.round(ds.reduce(function(a,b){return a+b},0)/ds.length)+" จุด เมื่อเทียบกับตัวคุณเองครั้งแรก ทำได้ดีมาก":"ยังไม่เห็นตัวเลขเพิ่มขึ้น ซึ่งเป็นเรื่องปกติ ลองปรับวิธีอ่านในวิชาที่ควรพัฒนาแล้วทำซ้ำ"):"ทำข้อสอบวิชาเดียวกันอย่างน้อย 2 ครั้งเพื่อดูพัฒนาการของตัวเอง";
+ var sb=(S.st||[]).slice(-7).map(function(x){return'<span style="display:inline-block;width:14px;height:'+x.l*10+'px;background:var(--sun);margin-right:3px;vertical-align:bottom;border-radius:2px"></span>'}).join("");
+ $("prog").innerHTML="<h2>พัฒนาการของฉัน</h2><p>"+enc+'</p><p class="mu">แสดงเฉพาะการเทียบกับตัวเอง ไม่มีอันดับหรือการเทียบกับคนอื่น</p><p>ระดับความพร้อมโดยประมาณ: <b>'+(m===null?"-":m+"%")+'</b> <span class="mu">ใช้ประเมินเบื้องต้น ไม่ได้รับประกันผลสอบจริง</span></p><p>สิ่งที่ควรพัฒนา: <b>'+(att.length?att[0]:"ยังไม่มีข้อมูล")+'</b></p><div class="sc"><table><tr><th>วิชา</th><th>แต่ละครั้ง</th><th>ครั้งแรก → ล่าสุด</th></tr>'+rows+'</table></div><h2 style="margin-top:14px">เนื้อหาที่แนะนำ</h2><div class="sc"><table><tr><th>วิชา</th><th>ระดับความเข้าใจ</th><th>สิ่งที่ควรทำ</th></tr>'+rec+'</table></div><h2 style="margin-top:14px">ความเครียด 7 ครั้งล่าสุด</h2><div style="height:56px">'+(sb||'<span class="mu">ยังไม่มีข้อมูล</span>')+"</div>";
+}
+var MO=[["มีความสุข","😄","#ffd84d"],["ภูมิใจ","😊","#ffe97a"],["ตื่นเต้น","😮","#f5b8d8"],["เบื่อหน่าย","😒","#c5ccd6"],["เครียด","😠","#f2a15a"],["โกรธ","😡","#ee6a5f"],["กังวล","😰","#f08c4f"],["ผิดหวัง","😞","#b9a4e0"],["เสียใจ","😢","#7fb4ee"],["เหงา","😔","#a7dbe6"],["สับสน","😵","#9ccf8a"],["เฉยๆ","😐","#ffe17a"]];
+var HL=" ถ้ารู้สึกแบบนี้ต่อเนื่องหลายวัน ลองคุยกับครู ผู้ปกครอง หรือสายด่วนสุขภาพจิต 1323";
+function MT(i){var t={"มีความสุข":"ดีมาก ใช้พลังนี้ทำบล็อกที่ยากสักหนึ่งบล็อก","ภูมิใจ":"เก่งมาก จดไว้ว่าภูมิใจเรื่องอะไร ไว้อ่านทีหลัง","ตื่นเต้น":"เอาพลังนี้ไปทำข้อสอบจับเวลา แล้วพักให้พอ","เบื่อหน่าย":"ลองเปลี่ยนวิชาหรือพัก 10 นาที","เครียด":"ลองหายใจ 4-4-6 สัก 5 รอบ แล้วทำแค่ 1 บล็อกสั้น ๆ."+HL,"โกรธ":"ลุกจากโต๊ะ 10 นาที เดินหรือดื่มน้ำก่อนกลับมาอ่าน","กังวล":"เขียนสิ่งที่กังวลลงกระดาษ 1 ข้อ แล้วเลือกสิ่งที่ลงมือทำได้วันนี้."+HL,"ผิดหวัง":"ผลครั้งเดียวไม่ได้บอกคุณค่าของคุณ ดูแท็บพัฒนาการเทียบกับตัวเอง","เสียใจ":"ความรู้สึกนี้ปกติ พักได้ และลองคุยกับคนที่ไว้ใจ."+HL,"เหงา":"ลองส่งข้อความหาเพื่อนหรือคนที่บ้านสักคน","สับสน":"เลือกเรื่องเล็กที่สุดมาทำก่อน ทีละขั้น","เฉยๆ":"ไม่เป็นไร เริ่มจากบล็อกเบา ๆ ได้"};return t[MO[i][0]]||""}
+function moodUI(){var e=$("mood");if(!e)return;var a=S.mo||[],last=a[a.length-1];
+ e.innerHTML='<h2>ตอนนี้รู้สึกยังไงบ้าง?</h2><p class="mu">'+new Date().toLocaleString("th-TH",{day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"})+'</p><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center">'+MO.map(function(x,i){return'<button data-i="'+i+'" style="background:none;border:0;font:inherit;color:var(--ink);padding:4px"><span style="display:flex;width:56px;height:56px;margin:0 auto 2px;border-radius:50%;background:'+x[2]+';align-items:center;justify-content:center;font-size:1.9rem;'+(last&&last.m===i?"outline:3px solid var(--ac);outline-offset:2px":"")+'">'+x[1]+'</span><span style="font-size:.85rem">'+x[0]+'</span></button>'}).join("")+'</div><p class="mu" style="margin-top:10px">'+(last?"ล่าสุด: "+MO[last.m][0]+" · "+MT(last.m):"แตะอารมณ์ที่ตรงกับใจคุณอยู่ตอนนี้")+'</p>';
+ e.querySelectorAll("button").forEach(function(b){b.onclick=function(){S.mo=(S.mo||[]).concat({m:+b.dataset.i,d:Date.now()}).slice(-60);persist();render()}});
+ var h=a.slice(-7).map(function(x){return'<span title="'+new Date(x.d).toLocaleDateString("th-TH")+'" style="font-size:1.5rem">'+MO[x.m][1]+'</span>'}).join(" ");
+ $("prog").insertAdjacentHTML("beforeend",'<h2 style="margin-top:14px">อารมณ์ 7 ครั้งล่าสุด</h2><div>'+(h||'<span class="mu">ยังไม่มีข้อมูล</span>')+'</div>')}
+var _r=render;render=function(){_r();extra();moodUI()};
+function build(carry){
+ var l=stLvl()||3,per=+$("hrs").value*2;if(l>=3.7)per=Math.max(2,Math.round(per*.6));else if(l>=2.8)per=Math.max(2,Math.round(per*.85));
+ var w=SU.map(function(s){var a=subAvg(s);return(a===null?60:a>=80?25:110-a)+(carry[s]||0)*8}),sum=w.reduce(function(a,b){return a+b},0),n=w.map(function(x){return Math.max(1,Math.round(x/sum*per*6))}),seq=[];
+ var left=S.exam?Math.ceil((new Date(S.exam+"T00:00:00")-new Date())/864e5):99,mock=left<=14;
+ while(n.some(function(x){return x>0})){n.forEach(function(x,i){if(n[i]>0){seq.push(SU[i]);n[i]--}})}
+ var k=0,days=DY.map(function(d,i){var a=[];if(i===6)return a;for(var j=0;j<per;j++){var s=seq[k++%seq.length];if(j===per-1&&(i===5||(mock&&i%2===0)))s="ข้อสอบจับเวลา";a.push({s:s,done:false})}return a});
+ S.plan={days:days,rest:l>=3.7};persist();drawPlan(msg0(l,mock));
+}
+function msg0(l,mock){return(l>=3.7?"ตารางนี้เบาลงเพราะคุณกดดันมาก พักสั้น ๆ 10 นาทีทุก 2 บล็อก ":"")+(mock?"ใกล้วันสอบ เพิ่มข้อสอบจับเวลาและการทบทวน ":"")+"ผลตารางปรับตามคะแนนล่าสุด"}
+function drawPlan(note){
+ if(!S.plan)return;var h='<tr><th>วัน</th><th>แผน (บล็อกละ 30 นาที ติ๊กเมื่อทำแล้ว)</th></tr>';
+ S.plan.days.forEach(function(a,i){h+="<tr><td>"+DY[i]+"</td><td>"+(a.length?a.map(function(b,j){return'<label style="display:inline-block;margin:2px 8px 2px 0;font-weight:400"><input type="checkbox" data-d="'+i+'" data-b="'+j+'" '+(b.done?"checked":"")+"> "+b.s+"</label>"}).join(""):"พัก ทบทวนเบา ๆ และดูแลใจ")+"</td></tr>"});
+ $("sched").innerHTML=h;$("snote").textContent=note||"";
+ $("sched").querySelectorAll("input").forEach(function(c){c.onchange=function(){S.plan.days[+c.dataset.d][+c.dataset.b].done=c.checked;persist()}});
+}
+$("mk").onclick=function(){build({})};
+$("adj").onclick=function(){var c={};if(S.plan)S.plan.days.forEach(function(a){a.forEach(function(b){if(!b.done&&b.s!=="ข้อสอบจับเวลา")c[b.s]=(c[b.s]||0)+1})});build(c);$("snote").textContent="ไม่เป็นไรเลย ย้ายส่วนที่ค้างไปวันอื่นแล้ว และปรับตามคะแนนล่าสุด: วิชาที่เข้าใจแล้วลดเวลา วิชาที่ยังไม่แน่นเพิ่มเวลา"};
+function gate(){var L=$("login"),g=null;try{g=localStorage.getItem("tpguest")}catch(e){}
+ if(S.photo)$("himg").src=S.photo;
+ if(uid||g)L.classList.add("hide");else L.classList.remove("hide");
+ $("lst").textContent=uid?"":"No account found yet. Open this page on a device where you are signed in, then tap Sign in again.";
+ var hp=document.querySelector(".hero p");if(hp)hp.textContent=(S.nick?"สวัสดี "+S.nick+" ":"")+"ค่อย ๆ เตรียมตัว ทีละก้าว";
+ $("lopen").textContent=uid?"My account":"Sign in"}
+$("lrecheck").onclick=function(){var b=this;b.disabled=true;b.textContent="Signing in...";init().then(function(){b.disabled=false;b.textContent="Sign in";gate()})};
+$("lguest").onclick=function(){var n=$("lname").value.trim();if(n)S.nick=n;try{localStorage.setItem("tpguest","1")}catch(e){}persist();gate()};
+$("lopen").onclick=function(){try{localStorage.removeItem("tpguest")}catch(e){}$("login").classList.remove("hide")};
+$("addphoto").onclick=function(){$("pf").click()};
+$("pf").onchange=function(){var f=this.files[0];if(!f)return;var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var m=Math.min(im.width,im.height),c=document.createElement("canvas");c.width=c.height=176;c.getContext("2d").drawImage(im,(im.width-m)/2,(im.height-m)/2,m,m,0,0,176,176);S.photo=c.toDataURL("image/jpeg",.82);$("himg").src=S.photo;persist()};im.src=r.result};r.readAsDataURL(f);this.value=""};
+gate();
+init().then(function(){stressUI($("sb1"),"x");stressUI($("sb2"),"y");extra();drawPlan("");gate()});
+</script>
+<script type="module">
+  import { db } from "./firebase.js";
+  import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  // ทดสอบบันทึกข้อมูล (ลบบล็อกนี้ได้เมื่อยืนยันว่าเชื่อมต่อสำเร็จแล้ว)
+  try {
+    await addDoc(collection(db, "test"), { msg: "hello", time: Date.now() });
+    console.log("บันทึกสำเร็จ");
+  } catch (err) {
+    console.error("บันทึกไม่สำเร็จ:", err.code || err.message);
+  }
+</script>
+</body></html>
